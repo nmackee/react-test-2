@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { ChildArea } from "./ChildArea";
 import "./styles.css";
 
@@ -12,6 +12,10 @@ export default function App() {
   const onClickOpen = () => setOpen(!open);
 
   const onClickClose = useCallback(() => setOpen(false), [setOpen]);
+
+  // 変数自体のメモ化
+  const temp = useMemo(() => 1 + 3, []);
+  console.log(temp);
 
   return (
     <div className="App">
